@@ -1,9 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
+import { Layout } from './components';
+import { HomeRoute } from './routes';
 import { store } from './store';
 
 export const App = () => {
@@ -11,13 +13,11 @@ export const App = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Provider store={store}>
-          <SafeAreaView className="flex-1 bg-gray-300">
+          <SafeAreaView className="flex-1 bg-white">
             <StatusBar backgroundColor="white" barStyle="dark-content" />
-            <View className="flex-1">
-              <Text className="font-bold text-red-500 text-center">
-                Uber Clone
-              </Text>
-            </View>
+            <Layout>
+              <HomeRoute />
+            </Layout>
           </SafeAreaView>
         </Provider>
       </NavigationContainer>
