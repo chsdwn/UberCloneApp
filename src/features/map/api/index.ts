@@ -1,0 +1,1 @@
+export { getTravelTime } from './getTravelTime';
