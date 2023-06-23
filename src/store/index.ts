@@ -7,8 +7,11 @@ import {
 import { configureStore } from '@reduxjs/toolkit';
 
 import { apiSlice } from '../api/apiSlice';
+import { navigationSliceReducer } from '@/features/navigation/store/navigationSlice';
 
-const reducers = {};
+const reducers = {
+  navigation: navigationSliceReducer,
+};
 
 export const store = configureStore({
   reducer: {
