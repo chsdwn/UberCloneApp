@@ -22,3 +22,7 @@ Create a .env file and add keys listed below to the file.
 1. Enable Maps SDK for Android API.
 1. Replace `[YOUR_API_KEY]` placeholder with your api key in `AndroidManifest.xml` file.
 1. Run `$ yarn android` command to run the app on an Android emulator. (MAKE SURE YOUR DEVICE OR EMULATOR HAS GOOGLE PLAY SERVICES INSTALLED)
+
+## Video
+
+https://github.com/chsdwn/UberCloneApp/assets/13810855/44c1c2d8-79d3-4c75-b23c-d30639c7e8c2
