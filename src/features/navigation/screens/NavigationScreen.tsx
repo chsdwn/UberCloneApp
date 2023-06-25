@@ -60,7 +60,7 @@ export const NavigationScreen = () => {
         styles={placesAutocompleteStyles}
       />
 
-      <ScrollView horizontal showsHorizontalScrollIndicator>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <NavigationButton
           title="Get a ride"
           image={require('@/assets/images/car.png')}

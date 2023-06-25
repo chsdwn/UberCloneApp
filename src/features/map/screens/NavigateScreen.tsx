@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/core';
 import {
   GooglePlaceData,
@@ -18,12 +18,16 @@ import { GOOGLE_MAPS_API_KEY } from '@env';
 import { RideStackNavigationProp } from '../types';
 import { Icon } from '@/components';
 import { Favourites } from '@/features/navigation/components';
-import { setDestination } from '@/features/navigation/store/navigationSlice';
+import {
+  selectDestination,
+  setDestination,
+} from '@/features/navigation/store/navigationSlice';
 
 export const NavigateScreen = () => {
   const navigation = useNavigation<RideStackNavigationProp>();
 
   const dispatch = useDispatch();
+  const destination = useSelector(selectDestination);
 
   const handlePlaceSelect = (
     data: GooglePlaceData,
@@ -46,7 +50,7 @@ export const NavigateScreen = () => {
       <View className="border-t border-gray-200 flex-shrink flex-1">
         <View>
           <GooglePlacesAutocomplete
-            placeholder="Where to?"
+            placeholder={destination ? destination.description : 'Where to?'}
             nearbyPlacesAPI="GooglePlacesSearch"
             fetchDetails
             debounce={400}
