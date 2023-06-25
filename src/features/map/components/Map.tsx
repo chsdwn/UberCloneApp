@@ -26,13 +26,18 @@ export const Map = () => {
 
   useEffect(() => {
     if (!origin || !destination) return;
+    if (!mapRef.current) return;
 
-    if (mapRef.current) {
-      mapRef.current.fitToSuppliedMarkers(
+    const id = setTimeout(() => {
+      mapRef.current!.fitToSuppliedMarkers(
         [identifiers.ORIGIN, identifiers.DESTINATION],
         { edgePadding: { top: 50, bottom: 50, left: 50, right: 50 } },
       );
-    }
+    }, 300);
+
+    return () => {
+      clearTimeout(id);
+    };
   }, [origin, destination]);
 
   useEffect(() => {
